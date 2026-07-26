@@ -368,7 +368,7 @@ end
 
    --    if self.relaxation_counter == 1 then
    --       local output_prefix = "siesta_ml_" .. self.relaxation_counter
-   --       local command = "mldft siesta-relax siestayaml.yml -w " .. output_prefix
+   --       local command = "siesta-ml siesta-relax siestayaml.yml -w " .. output_prefix
    --       local poscar_data
    --       if siesta.IONode then
    --          print("Root process (IONode) running command: " .. command)
@@ -473,7 +473,7 @@ function ML_LBFGS:SIESTA(siesta)
             if siesta.IONode then
                print("DAR self.relaxation_counter 1 :" .. self.relaxation_counter)
                local output_prefix = "siesta_ml_" .. self.relaxation_counter
-               local command = "mldft siesta-relax siestayaml.yml -w " .. output_prefix
+               local command = "siesta-ml --no-rich siesta-relax siestayaml.yml -w " .. output_prefix
                print("Root process (IONode) running command: " .. command)
                local success = self:run_command(command)
                if not success then
